@@ -79,7 +79,7 @@ const switchTab = (id) => {
 };
 
 const showBooks = (books) => {
-  console.log(books);
+  // console.log(books);
   const bookContainer = document.getElementById("container");
 
   books.forEach((book) => {
@@ -93,7 +93,15 @@ const createCard = (book) => {
   const div = document.createElement("div");
   div.classList.add("card");
 
-  let overview = book.overview;
+  let overview;
+  // console.log(overview);
+  if (book.overview.length > 100) {
+    overview = book.overview.slice(0, 100) + '...';
+  }
+  else {
+    overview = book.overview;
+  }
+  // console.log(overview);
 
   div.innerHTML = `
   <div class="image-container">
